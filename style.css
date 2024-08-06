@@ -1,0 +1,668 @@
+/*?   Google Fonts    */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: var(--font-family);
+  text-decoration: none;
+}
+:root {
+  /*?   Font Family   */
+  --font-family: "Poppins", sans-serif;
+  /*?    Colors    */
+  --main-color: #ff4d55;
+  --body-color: #171b44;
+  --body-alter-color: #4454ff;
+  --hover-color: #f8646c;
+  --container-color: #1d2352;
+  --text-color: #fbfeff;
+  --text-alter-color: #08d2d4;
+}
+/*?     Basic Styles     */
+::selection {
+  /* Yazılar seçili olduğunda arka plan rengi. */
+  background: var(--main-color);
+  color: var(--text-color);
+}
+body {
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+section {
+  padding: 4rem 0rem 3rem;
+}
+img {
+  width: 100%;
+}
+.container {
+  max-width: 1060px;
+  margin: auto;
+  width: 100%;
+}
+/* .btn {
+  background: var(--main-color);
+  border: 2px solid transparent;
+  border: none;
+  padding: 7px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+} */
+/*!   Header Area    */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #1c2250;
+  width: 100%;
+  z-index: 1000;
+}
+.navbar {
+  /* 1rem = 16px = 1em  */
+  max-width: 1270px;
+  width: 95%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+}
+.navbar .logo {
+  font-family: var(--font-family);
+  color: #fbfeff;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 600;
+}
+.navbar .logo span {
+  color: var(--main-color);
+}
+.navbar .navlinks {
+  display: flex;
+  align-items: center;
+  column-gap: 18px;
+}
+.navbar .navlinks a {
+  color: var(--text-color);
+  position: relative;
+  font-size: 16px;
+  font-weight: 500;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  background-color: var(--main-color);
+  left: 0;
+  bottom: -3px;
+  transition: all 0.4s linear;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+.navbar .login-btn {
+  color: var(--text-color);
+  font-weight: 500;
+  background-color: var(--main-color);
+  padding: 8px 15px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.navbar .login-btn .bx {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.navbar .login-btn:hover {
+  background-color: var(--hover-color);
+}
+.menu-icon {
+  display: none;
+}
+.menu-icon .bx {
+  color: var(--text-color);
+  font-size: 24px;
+}
+/*!    Home Area    */
+.home-wrapper {
+  min-height: 640px;
+  position: relative;
+}
+.home-wrapper img {
+  position: absolute;
+  width: 100;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.home-wrapper .home-overlay {
+  position: absolute;
+  background: linear-gradient(
+    74deg,
+    rgb(23, 27, 68, 80%) 50%,
+    rgb(23, 27, 68, 14%)
+  );
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+.home-wrapper .home-text {
+  position: absolute;
+  z-index: 200;
+  top: 250px;
+  left: 100px;
+}
+.home-wrapper .home-text .home-title {
+  font-size: 2.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.home-wrapper .home-text .home-title span {
+  color: var(--main-color);
+}
+.home-wrapper .home-text .home-title::after,
+.home-wrapper .home-text .faq-title::after {
+  content: "";
+  position: absolute;
+  width: 44px;
+  height: 3px;
+  background: var(--main-color);
+  left: 0;
+  top: -10px;
+}
+.home-description {
+  max-width: 450px;
+  font-size: 14px;
+  margin: 0.2rem 0 1rem;
+}
+.home-btn {
+  background: var(--main-color);
+  padding: 10px 18px;
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.4s;
+}
+.home-btn:hover {
+  background: var(--hover-color);
+}
+/*!   Services Area   */
+.heading {
+  position: relative;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 40px;
+  text-transform: capitalize;
+}
+.heading::after {
+  content: "";
+  position: absolute;
+  background: var(--main-color);
+  width: 44px;
+  height: 4px;
+  display: flex;
+  left: 50%;
+  transform: translate(-50%);
+}
+.services-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+  gap: 30px;
+}
+.services-content .ser-box {
+  background-color: var(--container-color);
+  border-radius: 5px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+.ser-box:hover {
+  transform: scale(1.05);
+}
+.ser-box i {
+  font-size: 30px;
+  padding: 10px;
+  border: 1px solid var(--main-color);
+  background: var(--main-color);
+  border-radius: 10px;
+}
+.ser-box .ser-box-title {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 20px 0 10px;
+}
+.ser-box p {
+  font-size: 14.5px;
+  letter-spacing: 0.5px;
+}
+/*!   Games Servers Area    */
+.games-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+  gap: 35px;
+}
+.games-box {
+  background-color: var(--container-color);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  border-radius: 10px;
+  transition: all 0.4s ease-in-out;
+  line-height: 1.5;
+}
+.games-box img {
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.05);
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 10px rgb(23, 27, 68, 80%);
+}
+.games-box:hover {
+  transform: scale(1.05);
+}
+.games-box .game-text {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.game-text .game-text-title {
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.game-text .game-text-price {
+  font-size: 15px;
+  font-weight: 400;
+}
+.game-text .game-text-price span {
+  color: var(--text-alter-color);
+}
+.game-text p {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+.games-btn {
+  color: var(--main-color);
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+/*!     FAQ     */
+.faq-content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.faq-text {
+  flex: 1 1 17rem;
+}
+.faq-img {
+  flex: 1 1 17rem;
+}
+.faq-text-title {
+  position: relative;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.faq-text-title::after {
+  content: "";
+  position: absolute;
+  width: 44px;
+  height: 4px;
+  background-color: var(--main-color);
+  top: -10px;
+  left: 0;
+}
+.faq-text p {
+  font-size: 14px;
+  text-align: justify;
+  margin: 0.5rem 0 1.5rem;
+}
+.faq-btn {
+  background-color: var(--main-color);
+  padding: 10px 16px;
+  color: var(--text-color);
+  transition: all 0.4s;
+}
+.faq-btn:hover {
+  background-color: var(--hover-color);
+}
+/*!    FAQ Accordion Area   */
+.faq-accordion {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.accordion-ask {
+  flex: 1 1 17rem;
+}
+.accordion-content {
+  flex: 1 1 17rem;
+  display: grid;
+  gap: 16px;
+}
+.accordion-ask h2 {
+  position: relative;
+  font-size: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.accordion-ask p {
+  margin: 0.5rem 0 1.5rem;
+}
+.accordion-item {
+  background-color: var(--container-color);
+  border-radius: 0.25rem;
+  padding: 12px;
+}
+.accordion-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  cursor: pointer;
+}
+.accordion-title h2 {
+  font-size: 18px;
+  font-weight: 400;
+}
+.accordion-icon {
+  font-size: 20px;
+  color: var(--text-color);
+}
+/*!   Control Panel   */
+.control {
+  background: var(--container-color);
+  width: 100vw;
+}
+.control-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 2fr));
+  align-items: center;
+}
+.control-title h2 {
+  position: relative;
+  font-size: 28px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.control-title p {
+  font-size: 14.5px;
+  margin: 5px 0 8px;
+}
+.control-icon .icon-text {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.control-icon .icon-text .bx {
+  color: var(--main-color);
+}
+.control-icon .icon-text span {
+  font-size: 14.5px;
+}
+.control-img {
+  object-position: center;
+  object-fit: cover;
+}
+/*!    Footer     */
+footer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 64px !important;
+  padding-bottom: 20px;
+}
+.footer-box {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+}
+.footer-box h2 {
+  font-size: 24px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.footer-box a {
+  color: #d4d4d4;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  padding-top: 5px;
+  transition: all 0.4s linear;
+}
+.footer-box a:hover {
+  color: var(--hover-color);
+}
+.footer-box .logo {
+  color: var(--main-color);
+  font-size: 24px;
+  text-transform: uppercase;
+}
+.footer-box .social-media {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+.footer-box .social-media .bx {
+  font-size: 30px;
+  transition: all 0.4s;
+}
+.footer-box .social-media .bx:hover {
+  color: var(--main-color);
+  cursor: pointer;
+}
+/*!    Copyright     */
+.copyright {
+  border-top: 1px solid var(--text-color);
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.copyright p {
+  font-size: 14px;
+}
+.copyright .payments .bx {
+  font-size: 25px;
+}
+/*!    Prices       */
+.prices {
+  background-image: linear-gradient(
+      rgb(23, 27, 68, 87%) 100%,
+      rgb(23, 27, 68, 87%) 100%
+    ),
+    url(./images/prices-home.jpg);
+  background-position: center;
+  background-repeat: no-repeat; /*?  Resim tekrar etmemesi için. */
+  background-size: cover;
+  height: auto;
+  width: 100%;
+  margin-top: 55px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.prices-text {
+  padding-top: 24px;
+  padding-bottom: 32px;
+}
+.prices-title {
+  font-size: 56px;
+  font-weight: 700;
+}
+.prices-subtitle {
+  font-size: 20px;
+  font-weight: 500;
+}
+.prices-description {
+  font-size: 16px;
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 28px;
+}
+/*!    Prices Games     */
+.prices-container {
+  margin-top: 2rem !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
+  gap: 32px;
+}
+.prices-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--container-color);
+  border-radius: 0.4rem;
+  margin-bottom: 3.5rem; /**  Gerek yok fazladan boşluk bırakıyor.  */
+  transition: all 0.4s;
+  cursor: pointer;
+}
+.prices-item:hover {
+  transform: translateY(-10px);
+}
+.prices-item img {
+  width: 100px;
+  display: block;
+  position: relative;
+  margin-top: -64px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.card-top {
+  margin: 16px;
+}
+.price-item-title {
+  font-size: 30px;
+  font-weight: 600;
+}
+.card-top p {
+  font-size: 15px;
+  color: #d4d4d4;
+}
+.price-heading {
+  width: 100%;
+  background: var(--main-color);
+  padding: 8px 0;
+}
+.price-heading h2 {
+  font-size: 22px;
+  font-weight: 600;
+}
+.price-heading span {
+  font-size: 16px;
+}
+.price-bottom {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0.8rem 0 1rem;
+}
+.price-bottom span {
+  font-size: 20px;
+  font-weight: 500;
+}
+.prices-item .home-btn {
+  margin-bottom: 24px;
+  padding: 8px 24px;
+  white-space: nowrap;
+  font-weight: 500;
+  transition: all 0.4s;
+}
+.prices-item .home-btn:hover {
+  background: var(--hover-color);
+}
+
+
+/*!    Responsive    */
+@media (max-width: 1050px) {
+  .container {
+    margin: 0 auto;
+    width: 92%;
+  }
+}
+@media (max-width: 952px) {
+  .navbar {
+    padding: 14px 0;
+  }
+  section {
+    padding: 3rem 0 2rem;
+  }
+  .navlinks a,
+  .navlinks .login-btn {
+    display: none;
+  }
+  .menu-icon {
+    display: block;
+  }
+  .home-wrapper .home-text {
+    position: absolute;
+    z-index: 200;
+    top: 250px;
+    left: 20px;
+  }
+  .control-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  footer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .prices-text{
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    text-align: center;
+  }
+  .prices-title{
+    font-size:2rem;
+    font-weight: 700;
+  }
+  .prices-description{
+    font-size: 0.8rem;
+    margin-bottom:2rem;
+  }
+  .prices-container{
+    row-gap: 80px;
+  }
+}
+@media (max-width: 850px) {
+}
+@media (max-width: 792px) {
+}
+@media (max-width: 750px) {
+  .control-content {
+    display: flex;
+    flex-direction: column;
+  }
+  .control-img {
+    padding-top: 40px;
+  }
+  footer {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+}
+@media (max-width: 540px) {
+}
